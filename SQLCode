@@ -1,0 +1,76 @@
+CREATE TABLE Campaign
+(
+  CampaignId INT NOT NULL,
+  JoinCode INT NOT NULL,
+  CampaignName INT NOT NULL,
+  DMUserId INT NOT NULL,
+  PRIMARY KEY (CampaignId),
+  UNIQUE (DMUserId)
+);
+
+CREATE TABLE Encounter
+(
+  EncounterId INT NOT NULL,
+  CampaignId INT NOT NULL,
+  PRIMARY KEY (EncounterId),
+  FOREIGN KEY (CampaignId) REFERENCES Campaign(CampaignId)
+);
+
+CREATE TABLE Player
+(
+  Username INT NOT NULL,
+  Password INT NOT NULL,
+  Email INT NOT NULL,
+  Admin INT,
+  UserId INT NOT NULL,
+  PRIMARY KEY (UserId),
+  UNIQUE (Username)
+);
+
+CREATE TABLE PlayIn
+(
+  UserId INT NOT NULL,
+  CampaignId INT NOT NULL,
+  PRIMARY KEY (UserId, CampaignId),
+  FOREIGN KEY (UserId) REFERENCES Player(UserId),
+  FOREIGN KEY (CampaignId) REFERENCES Campaign(CampaignId)
+);
+
+CREATE TABLE Character
+(
+  CharacterId INT NOT NULL,
+  AC INT NOT NULL,
+  HP INT NOT NULL,
+  Initiative INT NOT NULL,
+  InitiativeBonus INT NOT NULL,
+  CharacterName INT NOT NULL,
+  Level INT NOT NULL,
+  UserId INT NOT NULL,
+  CampaignId INT NOT NULL,
+  PRIMARY KEY (CharacterId),
+  FOREIGN KEY (UserId) REFERENCES Player(UserId),
+  FOREIGN KEY (CampaignId) REFERENCES Campaign(CampaignId)
+);
+
+CREATE TABLE Monster
+(
+  MonsterId INT NOT NULL,
+  AC INT NOT NULL,
+  Initiative INT NOT NULL,
+  InitiativeBonus INT NOT NULL,
+  MonsterName INT NOT NULL,
+  CR INT,
+  Public INT NOT NULL,
+  UserId INT NOT NULL,
+  PRIMARY KEY (MonsterId),
+  FOREIGN KEY (UserId) REFERENCES Player(UserId)
+);
+
+CREATE TABLE Fight
+(
+  MonsterId INT NOT NULL,
+  EncounterId INT NOT NULL,
+  PRIMARY KEY (MonsterId, EncounterId),
+  FOREIGN KEY (MonsterId) REFERENCES Monster(MonsterId),
+  FOREIGN KEY (EncounterId) REFERENCES Encounter(EncounterId)
+);
