@@ -1,28 +1,30 @@
 CREATE TABLE Campaign
 (
-  CampaignId INT NOT NULL,
+  CampaignId SERIAL NOT NULL,
   JoinCode INT NOT NULL,
-  CampaignName INT NOT NULL,
+  CampaignName TEXT NOT NULL,
   DMUserId INT NOT NULL,
   PRIMARY KEY (CampaignId),
-  UNIQUE (DMUserId)
+  UNIQUE (DMUserId),
+  UNIQUE (JoinCode)
 );
 
 CREATE TABLE Encounter
 (
-  EncounterId INT NOT NULL,
+  EncounterId SERIAL NOT NULL,
   CampaignId INT NOT NULL,
+  EncounterName TEXT NOT NULL,
   PRIMARY KEY (EncounterId),
   FOREIGN KEY (CampaignId) REFERENCES Campaign(CampaignId)
 );
 
 CREATE TABLE Player
 (
-  Username INT NOT NULL,
-  Password INT NOT NULL,
-  Email INT NOT NULL,
-  Admin INT,
-  UserId INT NOT NULL,
+  Username varchar(15) NOT NULL,
+  Password text NOT NULL,
+  Email text NOT NULL,
+  Admin BOOLEAN,
+  UserId SERIAL NOT NULL,
   PRIMARY KEY (UserId),
   UNIQUE (Username)
 );
@@ -38,12 +40,12 @@ CREATE TABLE PlayIn
 
 CREATE TABLE Character
 (
-  CharacterId INT NOT NULL,
+  CharacterId SERIAL NOT NULL,
   AC INT NOT NULL,
   HP INT NOT NULL,
-  Initiative INT NOT NULL,
+  Initiative INT,
   InitiativeBonus INT NOT NULL,
-  CharacterName INT NOT NULL,
+  CharacterName TEXT NOT NULL,
   Level INT NOT NULL,
   UserId INT NOT NULL,
   CampaignId INT NOT NULL,
@@ -54,14 +56,14 @@ CREATE TABLE Character
 
 CREATE TABLE Monster
 (
-  MonsterId INT NOT NULL,
+  MonsterId SERIAL NOT NULL,
   AC INT NOT NULL,
-  Initiative INT NOT NULL,
+  Initiative INT,
   InitiativeBonus INT NOT NULL,
-  MonsterName INT NOT NULL,
+  MonsterName TEXT NOT NULL,
   CR INT,
-  Public INT NOT NULL,
-  UserId INT NOT NULL,
+  Public BOOLEAN NOT NULL,
+  UserId INT,
   PRIMARY KEY (MonsterId),
   FOREIGN KEY (UserId) REFERENCES Player(UserId)
 );

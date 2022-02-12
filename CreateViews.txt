@@ -14,3 +14,15 @@ SELECT joinCode FROM campaign WHERE campaignName = 'inserted_name' AND DMUserId 
 Select Encounter
 SELECT * FROM encounter WHERE campaignId = currentCampaignId;
 
+CREATE OR REPLACE VIEW public."Home Screen"
+ AS
+ SELECT campaign.campaignname,
+    playin.campaignid,
+    playin.userid,
+    player.username,
+    "character".charactername,
+    campaign.dmuserid
+   FROM campaign
+     JOIN playin ON campaign.campaignid = playin.campaignid
+     JOIN player ON playin.userid = player.userid
+     JOIN "character" ON playin.userid = "character".userid AND playin.campaignid 
