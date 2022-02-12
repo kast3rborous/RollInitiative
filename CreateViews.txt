@@ -2,9 +2,16 @@ Create Account Page
 SELECT username, email FROM player WHERE username = 'inserted_username' OR email = 'inserted_username';
 INSERT INTO player (username, email, password) VALUES ('inserted_username', 'inserted_email', 'hashed_password');
 
+Sign in page
+SELECT UserId FROM player WHERE username = 'inserted_username' AND password = 'hashed_password';
+
 Create Character
 INSERT INTO character (ac, hp, initiative, initiativeBonus, characterName, level, userID, campaignID);
 VALUES (insert_ac, insert_hp, insert_initiative, insert_initiativeBonus, 'insert_characterName, insert_level, currentUserID, selectedCampaignID);
+
+Create Monster
+INSERT INTO monster (ac, initiative, initiativeBonus, monsterName, cr, public, userId);
+VALUES (insert_ac, insert_initiative, insert_initiativeBonus, instert_monsterName, insert_cr, insert_pulic, currentUserID)
 
 Create Campaign
 SELECT inserted_name, currentUserID FROM campaign WHERE campaignName = 'inserted_name' AND DMUserId = currentUserID;
