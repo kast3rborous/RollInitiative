@@ -14,6 +14,7 @@ SELECT joinCode FROM campaign WHERE campaignName = 'inserted_name' AND DMUserId 
 Select Encounter
 SELECT * FROM encounter WHERE campaignId = currentCampaignId;
 
+Home Screen
 CREATE OR REPLACE VIEW public."Home Screen"
  AS
  SELECT campaign.campaignname,
@@ -26,3 +27,11 @@ CREATE OR REPLACE VIEW public."Home Screen"
      JOIN playin ON campaign.campaignid = playin.campaignid
      JOIN player ON playin.userid = player.userid
      JOIN "character" ON playin.userid = "character".userid AND playin.campaignid 
+     
+     
+Run Encounter
+CREATE OR REPLACE VIEW encounter_summary AS
+SELECT Encounter.EncountName, Monster.MonsterName, Monster.AC, Monster.Initiative, Monster.InitiativeBonus, Monster.CR, Character.CharacterName, Character.Level, Character.AC, Character.HP, Character.Initiative, Character.InitiativeBonus
+FROM Encounter
+INNER JOIN Character WHERE Encounter.CampaignId = Character.CampaignId
+INNER JOIN Fight WHERE Fight.MonsterId = Monster.MonsterId
