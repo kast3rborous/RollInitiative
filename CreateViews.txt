@@ -42,3 +42,18 @@ SELECT Encounter.EncountName, Monster.MonsterName, Monster.AC, Monster.Initiativ
 FROM Encounter
 INNER JOIN Character WHERE Encounter.CampaignId = Character.CampaignId
 INNER JOIN Fight WHERE Fight.MonsterId = Monster.MonsterId
+
+Create Encounter
+INSERT INTO encounter (encounterName, campaignid) VALUES (nameinput, currentCampaign);
+INSERT INTO fight (monsterid, encounterid) VALUES (monsterInput, current encounter),(...),(...);
+CREATE OR REPLACE VIEW public."Encounter Characters"
+ AS
+ SELECT character.charactername, character.level
+   FROM campaign
+     JOIN playin ON campaign.campaignid = playin.campaignid
+     JOIN player ON playin.userid = player.userid
+     JOIN "character" ON playin.userid = "character".userid AND playin.campaignid
+CREATE OR REPLACE VIEW public."Encounter Monsters"
+ AS
+ SELECT * from monster WHERE public = TRUE;
+
