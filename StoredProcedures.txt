@@ -1,0 +1,20 @@
+CREATE OR REPLACE FUNCTION public.createencounter(IN _campaignid integer,IN _monsterids integer[],IN _encountername text)
+    RETURNS boolean
+    LANGUAGE 'plpgsql'
+    VOLATILE
+    PARALLEL UNSAFE
+    COST 100
+    
+AS $BODY$
+DECLARE
+    _encounterid int;
+    _monsterid int;
+BEGIN
+    INSERT INTO encounter(campaignid, encountername) VALUES (_campaignid, _encountername);
+    SELECT encounterid INTO _encounterid FROM encounter WHERE encountername = _encountername;
+    FOREACH _monsterid IN ARRAY _monsterids loop
+        INSERT INTO fight (monsterid, encounterid) VALUES (_monsterid, _encounterid);
+        end loop;
+RETURN TRUE;
+END;
+$BODY$;
