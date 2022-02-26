@@ -1,24 +1,29 @@
 Create Account Page
+CREATE OR REPLACE VIEW public.CreateAccount AS
 SELECT username, email FROM player WHERE username = 'inserted_username' OR email = 'inserted_username';
-INSERT INTO player (username, email, password) VALUES ('inserted_username', 'inserted_email', 'hashed_password');
 
 Sign in page
+CREATE OR REPLACE VIEW public.Login AS
 SELECT UserId FROM player WHERE username = 'inserted_username' AND password = 'hashed_password';
 
 Create Character
-INSERT INTO character (ac, hp, initiative, initiativeBonus, characterName, level, userID, campaignID);
-VALUES (insert_ac, insert_hp, insert_initiative, insert_initiativeBonus, 'insert_characterName, insert_level, currentUserID, selectedCampaignID);
+CREATE OR REPLACE VIEW public.CreateCharacter AS
+SELECT campaignID FROM PlayIn WHERE UserId = 'currentUserId';
 
 Create Monster
 INSERT INTO monster (ac, initiative, initiativeBonus, monsterName, cr, public, userId);
 VALUES (insert_ac, insert_initiative, insert_initiativeBonus, instert_monsterName, insert_cr, insert_pulic, currentUserID)
 
 Create Campaign
+CREATE OR REPLACE VIEW public.CreateCampaign AS
+SELECT PlayerID from Player;
+
 SELECT inserted_name, currentUserID FROM campaign WHERE campaignName = 'inserted_name' AND DMUserId = currentUserID;
 INSERT INTO campaign (campaignName, DMUserId) VALUES ('inserted_name', currentUserID);
 SELECT joinCode FROM campaign WHERE campaignName = 'inserted_name' AND DMUserId = currentUserID;
 
 Select Encounter
+CREATE OR REPLACE VIEW public.selectencounter AS
 SELECT * FROM encounter WHERE campaignId = currentCampaignId;
 
 Home Screen
@@ -37,7 +42,7 @@ CREATE OR REPLACE VIEW public."Home Screen"
      
      
 Run Encounter
-CREATE OR REPLACE VIEW encounter_summary AS
+CREATE OR REPLACE VIEW public.encounter_summary AS
 SELECT Encounter.EncountName, Monster.MonsterName, Monster.AC, Monster.Initiative, Monster.InitiativeBonus, Monster.CR, Character.CharacterName, Character.Level, Character.AC, Character.HP, Character.Initiative, Character.InitiativeBonus
 FROM Encounter
 INNER JOIN Character WHERE Encounter.CampaignId = Character.CampaignId
