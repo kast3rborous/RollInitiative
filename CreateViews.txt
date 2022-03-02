@@ -1,25 +1,31 @@
 Create Account Page
-SELECT username, email FROM player WHERE username = 'inserted_username' OR email = 'inserted_username';
-INSERT INTO player (username, email, password) VALUES ('inserted_username', 'inserted_email', 'hashed_password');
+CREATE OR REPLACE VIEW public.CreateAccount AS
+SELECT username, email FROM player;
 
 Sign in page
+CREATE OR REPLACE VIEW public.Login AS
 SELECT UserId FROM player WHERE username = 'inserted_username' AND password = 'hashed_password';
 
 Create Character
-INSERT INTO character (ac, hp, initiative, initiativeBonus, characterName, level, userID, campaignID);
-VALUES (insert_ac, insert_hp, insert_initiative, insert_initiativeBonus, 'insert_characterName, insert_level, currentUserID, selectedCampaignID);
+CREATE OR REPLACE VIEW public.CreateCharacter AS
+SELECT campaignID, UserId FROM PlayIn;
 
 Create Monster
 INSERT INTO monster (ac, initiative, initiativeBonus, monsterName, cr, public, userId);
 VALUES (insert_ac, insert_initiative, insert_initiativeBonus, instert_monsterName, insert_cr, insert_pulic, currentUserID)
 
 Create Campaign
+CREATE OR REPLACE VIEW public.CreateCampaign AS
+SELECT PlayerID from Player;
+
 SELECT inserted_name, currentUserID FROM campaign WHERE campaignName = 'inserted_name' AND DMUserId = currentUserID;
 INSERT INTO campaign (campaignName, DMUserId) VALUES ('inserted_name', currentUserID);
 SELECT joinCode FROM campaign WHERE campaignName = 'inserted_name' AND DMUserId = currentUserID;
 
 Select Encounter
-SELECT * FROM encounter WHERE campaignId = currentCampaignId;
+CREATE OR REPLACE VIEW public.selectencounter AS
+SELECT * FROM encounter
+INNER JOIN campaign ON campaign.campaignid = encounter.campaignid;
 
 Home Screen
 CREATE OR REPLACE VIEW public."Home Screen"
@@ -37,11 +43,12 @@ CREATE OR REPLACE VIEW public."Home Screen"
      
      
 Run Encounter
-CREATE OR REPLACE VIEW encounter_summary AS
-SELECT Encounter.EncountName, Monster.MonsterName, Monster.AC, Monster.Initiative, Monster.InitiativeBonus, Monster.CR, Character.CharacterName, Character.Level, Character.AC, Character.HP, Character.Initiative, Character.InitiativeBonus
+CREATE OR REPLACE VIEW public.encounter_summary AS
+SELECT Encounter.encountername, Monster.MonsterName, Monster.ac AS MonsterAC, Monster.Initiative AS Monsterinit, Monster.InitiativeBonus AS Monsterinitbonus, Monster.CR, Character.CharacterName, Character.Level, Character.AC AS CharacterAC, Character.HP, Character.Initiative AS Characterinit, Character.InitiativeBonus AS Characterinitbonus
 FROM Encounter
-INNER JOIN Character WHERE Encounter.CampaignId = Character.CampaignId
-INNER JOIN Fight WHERE Fight.MonsterId = Monster.MonsterId
+INNER JOIN character ON Encounter.campaignid = Character.campaignid
+INNER JOIN fight ON fight.encounterid = encounter.encounterid 
+INNER JOIN monster ON fight.monsterid = monster.monsterid;
 
 Create Encounter
 INSERT INTO encounter (encounterName, campaignid) VALUES (nameinput, currentCampaign);
