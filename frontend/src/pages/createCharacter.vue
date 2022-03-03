@@ -90,7 +90,13 @@ export default {
 
     Api.createCharacter(this.ac, this.hp, this.initiativeBonus, this.name, this.level, this.$route.params.userid)
     .then(()=>{
-      this.$router.push("/home")
+      this.$router.push("/home").catch((error) => {
+          console.log(error);
+          if (error.response) {
+            this.message = error.response.data.message;
+          }
+          this.loading = false;
+        });
     })
     },
   },
