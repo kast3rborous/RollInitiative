@@ -1,12 +1,7 @@
 <template>
   <div class="col-md-12">
     <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
-      />
-      <form name="form" @submit.prevent="handleRegister">
+      <form name="form" @submit.prevent="creatCharacter">
         <div>
           <div class="form-group">
             <label for="username">Name</label>
@@ -18,30 +13,49 @@
             />
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="ac">AC</label>
             <input
-              v-model="email"
-              type="email"
+              v-model="ac"
+              type="number"
               class="form-control"
-              name="email"
+              name="ac"
             />
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="hp">HP</label>
             <input
-              v-model="password"
-              type="password"
+              v-model="hp"
+              type="number"
               class="form-control"
-              name="password"
+              name="hp"
             />
           </div>
+          <div class="form-group">
+            <label for="level">Level</label>
+            <input
+            v-model="level"
+            type="number"
+            class="form-control"
+            name="level"
+            />
+          </div>
+          <div>
+            <label for="initiativeBonus">Initiative Bonus</label>
+            <input
+            v-model="initiativeBonus"
+            type="number"
+            class="form-control"
+            name="initiativeBonus"
+            />
+          </div>
+          <br>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              <span>Sign Up</span>
+              <span>Create</span>
             </button>
           </div>
         </div>
@@ -61,28 +75,23 @@ export default {
   data() {
     return {
       name: "",
-      email: "",
-      password: "",
+      ac: 0,
+      hp: 0,
+      level: 0,
+      initiativeBonus: "",
       loading: false,
       message: "",
     };
   },
   methods: {
-    handleRegister() {
+    creatCharacter() {
       this.message = "";
       this.loading = true;
 
-      Api.signup(this.email, this.password, this.name)
-        .then(() => {
-          this.$router.push("/login");
-        })
-        .catch((error) => {
-          console.log(error);
-          if (error.response) {
-            this.message = error.response.data.message;
-          }
-          this.loading = false;
-        });
+    Api.createCharacter(this.ac, this.hp, this.initiativeBonus, this.name, this.level, this.$route.params.userid)
+    .then(()=>{
+      this.$router.push("/home")
+    })
     },
   },
 };
