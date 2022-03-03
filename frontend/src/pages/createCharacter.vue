@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-12">
     <div class="card card-container">
-      <form name="form" @submit.prevent="creatCharacter">
+      <form name="form" @submit.prevent="createCharacter">
         <div>
           <div class="form-group">
             <label for="username">Name</label>
@@ -84,11 +84,11 @@ export default {
     };
   },
   methods: {
-    creatCharacter() {
+    createCharacter() {
       this.message = "";
       this.loading = true;
 
-    Api.createCharacter(this.ac, this.hp, this.initiativeBonus, this.name, this.level, this.$route.params.userid)
+    Api.createCharacter(this.ac, this.hp, this.initiativeBonus, this.name, this.level, this.$route.params.userid, this.$route.params.cid)
     .then(()=>{
       this.$router.push("/").catch((error) => {
           console.log(error);
