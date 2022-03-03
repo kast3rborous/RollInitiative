@@ -9,7 +9,6 @@ import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import Register from "./pages/Register";
 import Article from "./pages/Article";
-import createCharacter from "./pages/createCharacter";
 import AdminArticleAdd from "./components/AdminArticleAdd";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
@@ -44,7 +43,6 @@ const router = new VueRouter({
     { path: "/login", component: Login },
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
-    { path: "/createCharacter", component: createCharacter},
     {
       path: "/admin",
       component: Admin,
