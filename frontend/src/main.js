@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import Register from "./pages/Register";
 import Article from "./pages/Article";
+import createCharacter from "./pages/createCharacter"
 import AdminArticleAdd from "./components/AdminArticleAdd";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
