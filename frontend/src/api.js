@@ -61,8 +61,7 @@ class Api {
   }
 
   createCharacter(ac, hp, initiativeBonus, characterName, level, userid, campaignid){
-    return axios.post(API_URL + "/character", {ac, hp, initiativeBonus, characterName, level, userid, campaignid},
-    {headers: authHeader()})
+    return axios.post(API_URL + "/character", {ac, hp, initiativeBonus, characterName, level, userid, campaignid})
   }
 }
 
