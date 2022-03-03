@@ -52,7 +52,7 @@
 <script>
 import Api from "../api";
 export default {
-  name: "Register",
+  name: "createCharacter",
   data() {
     return {
       name: "",
@@ -63,6 +63,21 @@ export default {
     };
   },
   methods: {
+    handleRegister() {
+      this.message = "";
+      this.loading = true;
+
+      Api.signup(this.email, this.password, this.name)
+        .then(() => {
+          this.$router.push("/login");
+        })
+        .catch((error) => {
+          console.log(error);
+          if (error.response) {
+            this.message = error.response.data.message;
+          }
+          this.loading = false;
+        });
 
   },
 };
