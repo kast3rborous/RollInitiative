@@ -57,7 +57,7 @@
 <script>
 import Api from "../api";
 export default {
-  name: "characterCreate",
+  name: "createCharacter",
   data() {
     return {
       name: "",
