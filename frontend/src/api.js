@@ -59,6 +59,11 @@ class Api {
   signup(email, password, name) {
     return axios.post(API_URL + "/rpc/signup", { email, password, name });
   }
+
+  createCharacter(ac, hp, initiativeBonus, characterName, level, userid, campaignid){
+    return axios.post(API_URL + "/character", {ac, hp, initiativeBonus, characterName, level, userid, campaignid},
+    {headers: authHeader()})
+  }
 }
 
 export default new Api();
