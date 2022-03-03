@@ -1,33 +1,38 @@
 <template>
   <div class="col-md-12">
     <div class="card card-container">
+      <img
+        id="profile-img"
+        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        class="profile-img-card"
+      />
       <form name="form" @submit.prevent="handleRegister">
         <div>
           <div class="form-group">
-            <label for="characterName">Name</label>
+            <label for="username">Name</label>
             <input
-              v-model="characterName"
+              v-model="name"
               type="text"
               class="form-control"
-              name="Charactername"
+              name="name"
             />
           </div>
           <div class="form-group">
-            <label for="hp">Max HP</label>
+            <label for="email">Email</label>
             <input
-              v-model="hp"
-              type="number"
+              v-model="email"
+              type="email"
               class="form-control"
-              name="hp"
+              name="email"
             />
           </div>
           <div class="form-group">
-            <label for="ac">AC</label>
+            <label for="password">Password</label>
             <input
-              v-model="ac"
-              type="number"
+              v-model="password"
+              type="password"
               class="form-control"
-              name="ac"
+              name="password"
             />
           </div>
           <div class="form-group">
@@ -52,7 +57,7 @@
 <script>
 import Api from "../api";
 export default {
-  name: "createCharacter",
+  name: "Register",
   data() {
     return {
       name: "",
@@ -78,7 +83,7 @@ export default {
           }
           this.loading = false;
         });
-
+    },
   },
 };
 </script>
