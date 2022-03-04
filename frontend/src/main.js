@@ -10,6 +10,7 @@ import Logout from "./pages/Logout";
 import Register from "./pages/Register";
 import Article from "./pages/Article";
 import createCharacter from "./pages/createCharacter";
+import createCampaign from "./pages/createCampaign";    //Added by TGG on 3/3
 import AdminArticleAdd from "./components/AdminArticleAdd";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
@@ -44,7 +45,8 @@ const router = new VueRouter({
     { path: "/login", component: Login },
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
-    { path: "/createCharacter", component: createCharacter},
+    { path: "/createCharacter", component: createCharacter },
+    { path: "/createCampaign", component: createCampaign },     //Added by TGG on 3/3
     {
       path: "/admin",
       component: Admin,
