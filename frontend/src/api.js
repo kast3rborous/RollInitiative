@@ -66,8 +66,7 @@ class Api {
       userid:getUserIdFromToken(getJwtToken()), campaignid: campaignid}, {headers: authHeader()});
   }
   getCampaignid(campaignCode){
-    let res = axios.get(API_URL + `/campaign?select=campaignid&joincode=eq.${campaignCode}`).then(response => response.data.campaignid);
-    console.log(res);
+    let res = axios.get(API_URL + `/campaign?select=campaignid&joincode=eq.${campaignCode}`).then(response => {console.log(response.data.campaignid); return response.data.campaignid;});
     return res;
   }
 }
