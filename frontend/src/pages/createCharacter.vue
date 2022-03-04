@@ -78,7 +78,8 @@ export default {
       ac: 0,
       hp: 0,
       level: 0,
-      initiativeBonus: "",
+      initiativeBonus: 0,
+      campaignCode: 0,
       loading: false,
       message: "",
     };
@@ -88,7 +89,7 @@ export default {
       this.message = "";
       this.loading = true;
 
-    Api.createCharacter(this.ac, this.hp, this.initiativeBonus, this.name, this.level, this.$route.params.userid, this.$route.params.cid)
+    Api.createCharacter(this.ac, this.hp, this.initiativeBonus, this.name, this.level, Api.getCampaignid(campaignCode).campaignid)
     .then(()=>{
       this.$router.push("/").catch((error) => {
           console.log(error);

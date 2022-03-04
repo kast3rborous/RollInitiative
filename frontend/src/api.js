@@ -60,11 +60,15 @@ class Api {
     return axios.post(API_URL + "/rpc/signup", { email, password, name });
   }
 
-  createCharacter(ac, hp, initiativeBonus, characterName, level, userid, campaignid){
+  createCharacter(ac, hp, initiativeBonus, characterName, level, campaignid){
     return axios.post(API_URL + "/character", 
     {ac: ac, hp: hp, initiativebonus: initiativeBonus, charactername: characterName, level: level, 
-      userid:userid, campaignid: campaignid}, {headers: authHeader()});
+      userid:getUserIdFromToken(getJwtToken()), campaignid: campaignid}, {headers: authHeader()});
+  }
+  getCampaignid(campaignCode){
+    return axios.get(API_URL + `/campaign?select=campignid&joincode=eq.${campaignCode}`);
   }
 }
+
 
 export default new Api();
