@@ -99,7 +99,7 @@ export default {
       this.message = "";
       this.loading = true;
 
-    Api.createCharacter(this.ac, this.hp, this.initiativeBonus, this.name, this.level, await Api.getCampaignid(this.campaignCode).data.campaignid)
+    Api.createCharacter(this.ac, this.hp, this.initiativeBonus, this.name, this.level, Api.getCampaignid(this.campaignCode))
     .then(()=>{
       this.$router.push("/").catch((error) => {
           console.log(error);
