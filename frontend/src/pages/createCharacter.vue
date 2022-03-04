@@ -48,6 +48,15 @@
             name="initiativeBonus"
             />
           </div>
+        <div class="form-group">
+          <label for="campaignCode">Campaign Join Code</label>
+          <input
+          v-model="campaignCode"
+          type="number"
+          class="form-control"
+          name="campaignCode"
+          />
+        </div>
           <br>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
@@ -59,6 +68,7 @@
             </button>
           </div>
         </div>
+
       </form>
 
       <div v-if="message" class="alert alert-danger">
