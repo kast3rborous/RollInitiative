@@ -60,18 +60,15 @@ class Api {
     return axios.post(API_URL + "/rpc/signup", { email, password, name });
   }
 
-  createCharacter(ac, hp, initiativeBonus, characterName, level, userid, campaignid){
+  createCharacter(ac, hp, initiativeBonus, characterName, level, campaignid){
     return axios.post(API_URL + "/character", 
     {ac: ac, hp: hp, initiativebonus: initiativeBonus, charactername: characterName, level: level, 
-      userid:userid, campaignid: campaignid}, {headers: authHeader()});
-    }
-
-    //Added by The Great Gonzales on 3/3/2022
-    createCampaign(campaignId, joinCode, campaignName,) {
-        return axios.post(API_URL + "/createcampaign",
-            { campaignId: campaignId, joinCode: joinCode, campaignName: campaignName, userid:getUserIdFromToken(getJwtToken()) },
-            { headers: authHeader() })
-    }
+      userid:getUserIdFromToken(getJwtToken()), campaignid: campaignid}, {headers: authHeader()});
+  }
+  getCampaignid(campaignCode){
+    return axios.get(API_URL + `/campaign?select=campaignid&joincode=eq.${campaignCode}`).then( response => response.data[0].campaignid);
+  }
 }
+
 
 export default new Api();

@@ -48,6 +48,15 @@
             name="initiativeBonus"
             />
           </div>
+        <div class="form-group">
+          <label for="campaignCode">Campaign Join Code</label>
+          <input
+          v-model="campaignCode"
+          type="number"
+          class="form-control"
+          name="campaignCode"
+          />
+        </div>
           <br>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
@@ -59,6 +68,7 @@
             </button>
           </div>
         </div>
+
       </form>
 
       <div v-if="message" class="alert alert-danger">
@@ -78,7 +88,8 @@ export default {
       ac: 0,
       hp: 0,
       level: 0,
-      initiativeBonus: "",
+      initiativeBonus: 0,
+      campaignCode: 0,
       loading: false,
       message: "",
     };
@@ -88,7 +99,7 @@ export default {
       this.message = "";
       this.loading = true;
 
-    Api.createCharacter(this.ac, this.hp, this.initiativeBonus, this.name, this.level, this.$route.params.userid, this.$route.params.cid)
+    Api.createCharacter(this.ac, this.hp, this.initiativeBonus, this.name, this.level, Api.getCampaignid(this.campaignCode))
     .then(()=>{
       this.$router.push("/").catch((error) => {
           console.log(error);
