@@ -68,7 +68,7 @@ class Api {
   async getCampaignid(campaignCode){
     return axios.get(API_URL + `/campaign?select=campaignid&joincode=eq.${campaignCode}`).then(function(response){console.log(response.data[0].campaignid); return response.data[0].campaignid});
   }
-}
+
 
 //Added by The Great Gonzales on 3/3/2022
 createCampaign(campaignId, joinCode, campaignName) {
@@ -76,5 +76,5 @@ createCampaign(campaignId, joinCode, campaignName) {
         { campaignId: campaignId, joinCode: joinCode, campaignName: campaignName, userid: getUserIdFromToken(getJwtToken()) },
         { headers: authHeader() })
 }
-
+}
 export default new Api();
