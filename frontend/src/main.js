@@ -9,8 +9,10 @@ import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import Register from "./pages/Register";
 import Article from "./pages/Article";
+import userInfo from "./pages/UserInfo";
 import createCharacter from "./pages/createCharacter";
-import createCampaign from "./pages/createCampaign";    //Added by TGG on 3/3
+import createCampaign from "./components/createCampaign";    //Added by TGG on 3/3
+import MyCampaigns from "./components/MyCampaigns";
 import AdminArticleAdd from "./components/AdminArticleAdd";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
