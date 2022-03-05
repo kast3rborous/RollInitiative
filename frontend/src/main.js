@@ -46,7 +46,16 @@ const router = new VueRouter({
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
     { path: "/createCharacter", component: createCharacter },
-    { path: "/createCampaign", component: createCampaign },     //Added by TGG on 3/3
+    { 
+      path: "/userinfo",
+            component: userInfo,
+            beforeEnter: checkAuth,
+            children: [
+              { path: "campaignEdit/:id", component:campaignEdit },
+              { path: "createCampaign", component: createCampaign },     //Added by TGG on 3/3
+              { path: "", component: MyCampaigns },
+            ],
+    },
     {
       path: "/admin",
       component: Admin,
