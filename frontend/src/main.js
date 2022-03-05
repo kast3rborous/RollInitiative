@@ -53,7 +53,7 @@ const router = new VueRouter({
             component: userInfo,
             beforeEnter: checkAuth,
             children: [
-              { path: "campaignEdit/:id", component:campaignEdit },
+              //{ path: "campaignEdit/:id", component:campaignEdit },
               { path: "createCampaign", component: createCampaign },     //Added by TGG on 3/3
               { path: "", component: MyCampaigns },
             ],
