@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div v-if="loading">Loading articles....</div>
     <router-link to="userinfo/createCampaign" tag="b-button" class="float-right"
       >Create Campaign</router-link
     >
