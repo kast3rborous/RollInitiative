@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar>
-      <b-navbar-brand :to="{ path: '/' }">Roll Initiative</b-navbar-brand>
+      <b-navbar-brand :to="{ path: '/userinfo' }">Roll Initiative</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

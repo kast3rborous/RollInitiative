@@ -1,5 +1,8 @@
 <template>
   <div>
+    <router-link to="userinfo/addCampaign" tag="b-button" class="float-right"
+      >Join Campaign</router-link
+    >
     <router-link to="userinfo/createCampaign" tag="b-button" class="float-right"
       >Create Campaign</router-link
     >

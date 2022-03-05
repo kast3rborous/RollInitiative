@@ -13,6 +13,7 @@ import userInfo from "./pages/UserInfo";
 import createCharacter from "./pages/createCharacter";
 import createCampaign from "./components/createCampaign";    //Added by TGG on 3/3
 import MyCampaigns from "./components/MyCampaigns";
+import addCampaign from "./components/addCampaign";
 import AdminArticleAdd from "./components/AdminArticleAdd";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
@@ -53,7 +54,7 @@ const router = new VueRouter({
             component: userInfo,
             beforeEnter: checkAuth,
             children: [
-              //{ path: "campaignEdit/:id", component:campaignEdit },
+              { path: "addCampaign", component:addCampaign },
               { path: "createCampaign", component: createCampaign },     //Added by TGG on 3/3
               { path: "", component: MyCampaigns },
             ],
