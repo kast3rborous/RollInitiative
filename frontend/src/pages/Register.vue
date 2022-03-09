@@ -90,6 +90,7 @@ export default {
         }
         else {
           this.message = "Please ensure your password is at least 8 characters long, contains a number and a special character";
+          this.loading = false;
         }
         })
       .catch((error) => {
