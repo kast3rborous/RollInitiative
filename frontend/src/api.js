@@ -71,6 +71,10 @@ class Api {
     return axios.get(API_URL + `/campaign?select=campaignid&joincode=eq.${campaignCode}`).then(function(response){console.log(response.data[0].campaignid); return response.data[0].campaignid});
   }
 
+  checkpasswordstrength(pass) {
+    return axios.get(API_URL + "/rpc/checkpasswordstrength", {pass});
+  }
+
 
 //Added by The Great Gonzales on 3/3/2022
 createCampaign(campaignId, joinCode, campaignName) {

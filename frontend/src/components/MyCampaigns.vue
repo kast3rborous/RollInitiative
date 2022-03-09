@@ -11,8 +11,7 @@
       <b-thead>
         <b-tr>
           <b-th>ID</b-th>
-          <b-th>Title</b-th>
-          <b-th>Published</b-th>
+          <b-th>Name</b-th>
           <b-th>Actions</b-th>
         </b-tr>
       </b-thead>
@@ -20,7 +19,6 @@
         <b-tr v-for="article in articles" :key="article.articleid">
           <b-td>{{ article.articleid }}</b-td>
           <b-td>{{ article.title }}</b-td>
-          <b-td>{{ article.ispublished }}</b-td>
           <b-td>
             <b-button-group>
               <b-button
