@@ -73,9 +73,9 @@ export default {
       this.loading = true;
       //Add API to determine password strength
       Api.checkpasswordstrength(this.password)
-        .then(() => {
+        .then((res) => {
 
-        if (Api.checkpasswordstrength(this.password) = true)
+        if (res = true)
         {
         Api.signup(this.email, this.password, this.name)
           .then(() => {
