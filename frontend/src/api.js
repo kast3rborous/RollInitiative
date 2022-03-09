@@ -78,7 +78,7 @@ class Api {
 
 //Added by The Great Gonzales on 3/3/2022
 createCampaign(campaignId, joinCode, campaignName) {
-    return axios.post(API_URL + "/createcampaign",
+    return axios.post(API_URL + "/campaign",
         { joincode: joinCode, campaignname: campaignName, dmuserid: getUserIdFromToken(getJwtToken()) },
         { headers: authHeader() })
 }
