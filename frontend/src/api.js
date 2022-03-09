@@ -72,7 +72,7 @@ class Api {
   }
 
   checkpasswordstrength(pass) {
-    return axios.get(API_URL + "/rpc/checkpasswordstrength", {pass});
+    return axios.post(API_URL + "/rpc/checkpasswordstrength", { pass });
   }
 
 
