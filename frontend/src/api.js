@@ -71,8 +71,8 @@ class Api {
     return axios.get(API_URL + `/campaign?select=campaignid&joincode=eq.${campaignCode}`).then(function(response){console.log(response.data[0].campaignid); return response.data[0].campaignid});
   }
 
-  checkpasswordstrength(pass) {
-    return axios.post(API_URL + "/rpc/checkpasswordstrength", { pass });
+  checkpasswordstrength(password) {
+    return axios.post(API_URL + "/rpc/checkpasswordstrength", { password });
   }
 
 

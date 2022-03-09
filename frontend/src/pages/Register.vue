@@ -71,10 +71,10 @@ export default {
     handleRegister() {
       this.message = "";
       this.loading = true;
-      //Add API to determine password strength
+      //API to determine password strength
       Api.checkpasswordstrength(this.password)
-        .then((work) => {
-        if (work = true)
+        .then((res) => {
+        if (res == true)
         {
         Api.signup(this.email, this.password, this.name)
           .then(() => {
