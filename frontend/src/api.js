@@ -65,7 +65,7 @@ class Api {
     {ac: ac, hp: hp, initiativebonus: initiativeBonus, charactername: characterName, level: level, 
       userid:getUserIdFromToken(getJwtToken()), campaignid: campaignid}, {headers: authHeader()});
   }
-  async getCampaignid(campaignCode){
+  getCampaignid(campaignCode){
     return axios.get(API_URL + `/campaign?select=campaignid&joincode=eq.${campaignCode}`).then(function(response){console.log(response.data[0].campaignid); return response.data[0].campaignid});
   }
 
