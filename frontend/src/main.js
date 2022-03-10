@@ -17,7 +17,7 @@ import addCampaign from "./components/addCampaign";
 import AdminArticleAdd from "./components/AdminArticleAdd";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
-
+import campaignDetails from "./pages/campaignDetails";
 Vue.config.productionTip = false;
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -49,6 +49,7 @@ const router = new VueRouter({
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
     { path: "/createCharacter", component: createCharacter },
+    { path: "/campaignDetails/:id", component: campaignDetails},
     { 
       path: "/userinfo",
             component: userInfo,

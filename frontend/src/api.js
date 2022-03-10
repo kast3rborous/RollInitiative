@@ -36,7 +36,7 @@ class Api {
       }
     );
   }
-
+  
   deleteArticle(id) {
     return axios.delete(API_URL + `/articles?articleid=eq.${id}`, {
       headers: authHeader(),
@@ -53,7 +53,6 @@ class Api {
     );
   }
   */
-
   login(email, password) {
     return axios.post(API_URL + "/rpc/login", { email, password });
   }
@@ -61,16 +60,12 @@ class Api {
   signup(email, password, name) {
     return axios.post(API_URL + "/rpc/signup", { email, password, name });
   }
-
-  createCharacter(ac, hp, initiativeBonus, characterName, level, campaignid){
+  // Justin Complete - 30/10/22
+  createCharacter(ac, hp, initiativeBonus, characterName, level){
     return axios.post(API_URL + "/character", 
     {ac: ac, hp: hp, initiativebonus: initiativeBonus, charactername: characterName, level: level, 
-      userid:getUserIdFromToken(getJwtToken()), campaignid: campaignid}, {headers: authHeader()});
+      userid:getUserIdFromToken(getJwtToken()), campaignid: this.$route.query.campaignid}, {headers: authHeader()});
   }
-  getCampaignid(campaignCode){
-    return axios.get(API_URL + `/campaign?select=campaignid&joincode=eq.${campaignCode}`).then(function(response){console.log(response.data[0].campaignid); return response.data[0].campaignid});
-  }
-
   checkpasswordstrength(password) {
     return axios.post(API_URL + "/rpc/checkpasswordstrength", { password });
   }
@@ -81,6 +76,13 @@ createCampaign(campaignId, joinCode, campaignName) {
     return axios.post(API_URL + "/campaign",
         { joincode: joinCode, campaignname: campaignName, dmuserid: getUserIdFromToken(getJwtToken()) },
         { headers: authHeader() })
+}
+
+getCampaignCharacters(id){
+  return axios.get(API_URL + `/HomeScreen?campaignid=eq.${id}`)
+}
+getCampaignEncounters(id){
+  return axios.get(API_URL + `/encountersummary?campaignid.eq.${id}`)
 }
 }
 export default new Api();
