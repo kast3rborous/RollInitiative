@@ -71,18 +71,35 @@ export default {
     handleRegister() {
       this.message = "";
       this.loading = true;
-
-      Api.signup(this.email, this.password, this.name)
-        .then(() => {
-          this.$router.push("/login");
-        })
-        .catch((error) => {
-          console.log(error);
-          if (error.response) {
-            this.message = error.response.data.message;
-          }
+      //API to determine password strength
+      Api.checkpasswordstrength(this.password)
+        .then((res) => {
+        if (res.data[0].checkpasswordstrength == true)
+        {
+        Api.signup(this.email, this.password, this.name)
+          .then(() => {
+            this.$router.push("/login");
+          })
+          .catch((error) => {
+            console.log(error);
+            if (error.response) {
+              this.message = error.response.data.message;
+            }
+            this.loading = false;
+          });
+        }
+        else {
+          this.message = "Please ensure your password is at least 8 characters long, contains a number and a special character";
           this.loading = false;
-        });
+        }
+        })
+      .catch((error) => {
+        console.log(error);
+        if (error.response) {
+          this.message = error.response.data.message;
+        }
+        this.loading = false;
+      });
     },
   },
 };

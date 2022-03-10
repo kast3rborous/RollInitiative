@@ -4,6 +4,7 @@ import { authHeader, getJwtToken, getUserIdFromToken } from "./auth";
 const API_URL = "http://54.215.103.213:8000";
 
 class Api {
+  /*
   getArticles() {
     return axios.get(API_URL + "/articles", {});
   }
@@ -51,6 +52,7 @@ class Api {
       }
     );
   }
+  */
 
   login(email, password) {
     return axios.post(API_URL + "/rpc/login", { email, password });
@@ -69,11 +71,15 @@ class Api {
     return axios.get(API_URL + `/campaign?select=campaignid&joincode=eq.${campaignCode}`).then(function(response){console.log(response.data[0].campaignid); return response.data[0].campaignid});
   }
 
+  checkpasswordstrength(password) {
+    return axios.post(API_URL + "/rpc/checkpasswordstrength", { password });
+  }
+
 
 //Added by The Great Gonzales on 3/3/2022
 createCampaign(campaignId, joinCode, campaignName) {
-    return axios.post(API_URL + "/createcampaign",
-        { campaignId: campaignId, joinCode: joinCode, campaignName: campaignName, userid: getUserIdFromToken(getJwtToken()) },
+    return axios.post(API_URL + "/campaign",
+        { joincode: joinCode, campaignname: campaignName, dmuserid: getUserIdFromToken(getJwtToken()) },
         { headers: authHeader() })
 }
 }

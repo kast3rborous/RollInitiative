@@ -9,8 +9,11 @@ import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import Register from "./pages/Register";
 import Article from "./pages/Article";
+import userInfo from "./pages/UserInfo";
 import createCharacter from "./pages/createCharacter";
-import createCampaign from "./pages/createCampaign";    //Added by TGG on 3/3
+import createCampaign from "./components/createCampaign";    //Added by TGG on 3/3
+import MyCampaigns from "./components/MyCampaigns";
+import addCampaign from "./components/addCampaign";
 import AdminArticleAdd from "./components/AdminArticleAdd";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
@@ -46,7 +49,16 @@ const router = new VueRouter({
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
     { path: "/createCharacter", component: createCharacter },
-    { path: "/createCampaign", component: createCampaign },     //Added by TGG on 3/3
+    { 
+      path: "/userinfo",
+            component: userInfo,
+            beforeEnter: checkAuth,
+            children: [
+              { path: "addCampaign", component:addCampaign },
+              { path: "createCampaign", component: createCampaign },     //Added by TGG on 3/3
+              { path: "", component: MyCampaigns },
+            ],
+    },
     {
       path: "/admin",
       component: Admin,

@@ -54,8 +54,9 @@
             createCampaign() {
                 this.message = "";
                 this.loading = true;
+                this.campaignId = this.campaignName + getUserIdFromToken(getJwtToken()); //Unsure about this, may need revision
 
-                Api.createCampaign(this.joinCode, this.campaignName) 
+                Api.createCampaign(this.campaignId, this.joinCode, this.campaignName) //campaingId may be faulty, look in to it.
                     .then(() => {
                         this.$router.push("/").catch((error) => {
                             console.log(error);
