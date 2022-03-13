@@ -87,6 +87,10 @@ createMonster(ac, cr, initiativeBonus, monsterName, public) {
         }, { headers: authHeader() });
 }
 
+getCampaigns(userid) {
+  return axios.get(API_URL + `/HomeScreen?userid=eq.${userid}`);
+}
+
 getCampaignCharacters(id){
   return axios.get(API_URL + `/HomeScreen?campaignid=eq.${id}`)
 }

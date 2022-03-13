@@ -16,25 +16,15 @@
         </b-tr>
       </b-thead>
       <b-tbody>
-        <b-tr v-for="article in articles" :key="article.articleid">
-          <b-td>{{ article.articleid }}</b-td>
-          <b-td>{{ article.title }}</b-td>
+        <b-tr v-for="campaign in campaign" :key="campaign.campaignid">
+          <b-td>{{ campaign.campaignid }}</b-td>
+          <b-td>{{ campaign.campaignname }}</b-td>
           <b-td>
             <b-button-group>
               <b-button
                 variant="outline-primary"
-                :to="`/admin/edit/${article.articleid}`"
-                >Edit</b-button
-              >
-              <b-button
-                variant="outline-info"
-                @click="() => publishArticle(article.articleid)"
-                >Publish</b-button
-              >
-              <b-button
-                variant="outline-danger"
-                @click="() => deleteArticle(article.articleid)"
-                >Delete</b-button
+                :to="`/campaignDetails/${campaign.campaignid}`"
+                >Details</b-button
               >
             </b-button-group>
           </b-td>
@@ -46,46 +36,27 @@
 
 <script>
 import Api from "../api";
-
+userid = getUserIdFromToken(getJwtToken());
 export default {
-  name: "AdminArticleList",
+  name: "CampaignList",
   data: function () {
     return {
       loading: false,
-      articles: [],
+      campaign: [],
     };
   },
   created: function () {
-    this.loadArticles();
+    this.getCampaigns(userid);
   },
 
   methods: {
-    loadArticles() {
+    getCampaigns(userid) {
       this.loading = true;
-      this.articles = [];
-      Api.getArticles().then((res) => {
-        this.articles = res.data;
+      this.campaign = [];
+      Api.getCampaigns(userid).then((res) => {
+        this.campign = res.data;
         this.loading = false;
       });
-    },
-    publishArticle(articleid) {
-      Api.publishArticle(articleid)
-        .then(() => {
-          this.loadArticles();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-
-    deleteArticle(articleid) {
-      Api.deleteArticle(articleid)
-        .then(() => {
-          this.loadArticles();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
     },
   },
 };
