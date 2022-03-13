@@ -78,6 +78,15 @@ createCampaign(campaignId, joinCode, campaignName) {
         { headers: authHeader() })
 }
 
+//Added by The Great Gonzales on 3/12/2022
+createMonster(ac, cr, initiativeBonus, monsterName, public) {
+    return axios.post(API_URL + "/monster",
+        {
+            ac: ac, cr: cr, initiativebonus: initiativeBonus, monstername: monsterName, public: public,
+            userid: getUserIdFromToken(getJwtToken()),
+        }, { headers: authHeader() });
+}
+
 getCampaignCharacters(id){
   return axios.get(API_URL + `/HomeScreen?campaignid=eq.${id}`)
 }

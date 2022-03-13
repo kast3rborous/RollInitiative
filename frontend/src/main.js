@@ -12,6 +12,7 @@ import Article from "./pages/Article";
 import userInfo from "./pages/UserInfo";
 import createCharacter from "./pages/createCharacter";
 import createCampaign from "./components/createCampaign";    //Added by TGG on 3/3
+import createMonster from "./components/createMonster";      //Added by TGG on 3/12
 import MyCampaigns from "./components/MyCampaigns";
 import addCampaign from "./components/addCampaign";
 import AdminArticleAdd from "./components/AdminArticleAdd";
@@ -49,6 +50,7 @@ const router = new VueRouter({
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
     { path: "/createCharacter", component: createCharacter },
+    { path: "/createMonster", component: createMonster },                //Added by TGG on 3/12
     { path: "/campaignDetails/:id", component: campaignDetails},
     { 
       path: "/userinfo",
