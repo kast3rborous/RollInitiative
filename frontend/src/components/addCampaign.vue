@@ -39,7 +39,7 @@
 import Api from "../api";
 import { getJwtToken, getUserIdFromToken } from '../auth';
 let userid = getUserIdFromToken(getJwtToken());
-let joincode = parseInt(this.title);
+
 export default {
   name: "JoinCampaign",
   data() {
@@ -50,6 +50,7 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
+      let joincode = parseInt(this.title);
       Api.joinCampaign(joincode, userid)
         .then(() => {
           this.loading = false;
