@@ -36,7 +36,8 @@
 
 <script>
 import Api from "../api";
-userid = getUserIdFromToken(getJwtToken());
+import { getUserIdFromToken, getJwtToken } from '../auth';
+let userid = getUserIdFromToken(getJwtToken());
 export default {
   name: "CampaignList",
   data: function () {

@@ -79,10 +79,10 @@ createCampaign(campaignId, joinCode, campaignName) {
 }
 
 //Added by The Great Gonzales on 3/12/2022
-createMonster(ac, cr, initiativeBonus, monsterName, public) {
+createMonster(ac, cr, initiativeBonus, monsterName, publicBool) {
     return axios.post(API_URL + "/monster",
         {
-            ac: ac, cr: cr, initiativebonus: initiativeBonus, monstername: monsterName, public: public,
+            ac: ac, cr: cr, initiativebonus: initiativeBonus, monstername: monsterName, public: publicBool,
             userid: getUserIdFromToken(getJwtToken()),
         }, { headers: authHeader() });
 }

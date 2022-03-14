@@ -33,7 +33,7 @@
                     </div>
                     <div>
                         <label for="public">Public</label>
-                        <input v-model="public"
+                        <input v-model="publicBool"
                                type="checkbox"
                                class="form-control"
                                name="public" />
