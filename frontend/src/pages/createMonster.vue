@@ -1,3 +1,4 @@
+<!--Created on 3/14/2022 by The Great Gonzales-->
 <template>
     <div class="col-md-12">
         <div class="card card-container">
@@ -32,7 +33,7 @@
                                name="initiativeBonus" />
                     </div>
                     <div>
-                        <label for="public">Public</label>
+                        <label for="public">Private</label>
                         <input v-model="publicBool"
                                type="checkbox"
                                class="form-control"
@@ -58,38 +59,38 @@
 </template>
 
 <script>
-import Api from "../api";
-export default {
-  name: "createMonster",
-  data() {
-    return {
-      monsterName: "",
-      ac: 0,
-      cr: 0,
-      initiativeBonus: 0,
-      public: false,
-      loading: false,
-      message: "",
-    };
-  },
-  methods: {
-    createMonster() {
-      this.message = "";
-      this.loading = true;
+    import Api from "../api";
+    export default {
+        name: "createMonster",
+        data() {
+            return {
+                monsterName: "",
+                ac: 0,
+                cr: 0,
+                initiativeBonus: 0,
+                public: false,
+                loading: false,
+                message: "",
+            };
+        },
+        methods: {
+            createMonster() {
+                this.message = "";
+                this.loading = true;
 
-   Api.createMonster(this.ac, this.cr, this.initiativeBonus, this.monsterName, this.public)
-    .then(()=>{
-      this.$router.push("/").catch((error) => {
-          console.log(error);
-          if (error.response) {
-            this.message = error.response.data.message;
-          }
-          this.loading = false;
-        });
-    })
-    },
-  },
-};
+                Api.createMonster(this.ac, this.cr, this.initiativeBonus, this.monsterName, this.public)
+                    .then(() => {
+                        this.$router.push("/").catch((error) => {
+                            console.log(error);
+                            if (error.response) {
+                                this.message = error.response.data.message;
+                            }
+                            this.loading = false;
+                        });
+                    })
+            },
+        },
+    };
 </script>
 
 <style scoped>
