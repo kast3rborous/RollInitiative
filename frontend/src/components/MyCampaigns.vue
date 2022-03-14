@@ -55,7 +55,7 @@ export default {
       this.loading = true;
       this.campaign = [];
       Api.getCampaigns(userid).then((res) => {
-        this.campign = res.data;
+        this.campaign = res.data;
         this.loading = false;
       });
     },
