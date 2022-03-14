@@ -38,6 +38,7 @@
 <script>
 import Api from "../api";
 let userid = getUserIdFromToken(getJwtToken());
+let joincode = parseInt(this.title);
 export default {
   name: "JoinCampaign",
   data() {
@@ -48,7 +49,7 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.joinCampaign(this.title, userid)
+      Api.joinCampaign(joincode, userid)
         .then(() => {
           this.loading = false;
           this.$router.push("/userinfo");
