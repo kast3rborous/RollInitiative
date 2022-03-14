@@ -1,7 +1,7 @@
 <template>
     <div class="col-md-12">
         <div class="card card-container">
-            <form name="form" @submit.prevent="createCharacter">
+            <form name="form" @submit.prevent="createMonster">
                 <div>
                     <div class="form-group">
                         <label for="username">Monster Name</label>
@@ -77,7 +77,7 @@ export default {
       this.message = "";
       this.loading = true;
 
-   Api.createCharacter(this.ac, this.cr, this.initiativeBonus, this.monsterName, this.public)
+   Api.createMonster(this.ac, this.cr, this.initiativeBonus, this.monsterName, this.public)
     .then(()=>{
       this.$router.push("/").catch((error) => {
           console.log(error);
