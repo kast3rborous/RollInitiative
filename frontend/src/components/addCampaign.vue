@@ -37,7 +37,7 @@
 
 <script>
 import Api from "../api";
-import { authHeader, getJwtToken, getUserIdFromToken } from "./auth";
+import { getJwtToken, getUserIdFromToken } from "./auth";
 let userid = getUserIdFromToken(getJwtToken());
 let joincode = parseInt(this.title);
 export default {
