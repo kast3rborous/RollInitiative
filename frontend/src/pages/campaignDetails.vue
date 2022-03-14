@@ -29,7 +29,7 @@
       <b-tbody>
         <b-tr v-for="character in campaignDetails" :key="character.characterid">
           <b-td>{{ character.charactername }}</b-td>
-          <b-td>{{ character.username }}</b-td>>
+          <b-td>{{ character.username }}</b-td>
         </b-tr>
       </b-tbody>
     </b-table-simple>
@@ -40,7 +40,7 @@
         </b-tr>
       </b-thead>
       <b-tbody>
-        <b-tr v-for="encounter in encounterDetails" :key="encounter.encounterid">
+        <b-tr v-for="encounter in encounterDetails" :key="encounter.encountername">
           <b-td>{{ encounter.encountername }}</b-td>
         </b-tr>
       </b-tbody>
