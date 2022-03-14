@@ -8,22 +8,12 @@
       <form name="form" @submit.prevent="handleAdd">
         <div>
           <div class="form-group">
-            <label for="username">Title</label>
+            <label for="username">Join Code</label>
             <input
               v-model="title"
               type="text"
               class="form-control"
               name="title"
-            />
-          </div>
-          <div class="form-group">
-            <label for="username">joincode</label>
-            <textarea
-              v-model="content"
-              type="text"
-              class="form-control"
-              name="content"
-              rows="20"
             />
           </div>
           <div class="form-group">
@@ -58,7 +48,7 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.joinCampaign({ content: this.content })
+      Api.joinCampaign({ code: this.title })
         .then(() => {
           this.loading = false;
           this.$router.push("/userinfo");
