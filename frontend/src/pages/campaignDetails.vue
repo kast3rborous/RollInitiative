@@ -18,13 +18,20 @@
     </b-jumbotron>
     <br />
     <div v-if="loading">Loading page....</div>
-    <ul v-else>
-      <li v-for="character in campaignDetails" :key="character.characterid">
-        {{
-          character.charactername
-        }}
-      </li>
-    </ul>
+<b-table-simple hover small caption-top responsive v-else>
+      <b-thead>
+        <b-tr>
+          <b-th>Name</b-th>
+          <b-th>Level</b-th>
+        </b-tr>
+      </b-thead>
+      <b-tbody>
+        <b-tr v-for="character in campaignDetails" :key="character.characterid">
+          <b-td>{{ character.charactername }}</b-td>
+          <b-td>{{ character.level }}</b-td>>
+        </b-tr>
+      </b-tbody>
+    </b-table-simple>
   </div>
 </template>
 
