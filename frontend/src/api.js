@@ -91,6 +91,14 @@ getCampaigns(userid) {
   return axios.get(API_URL + `/HomeScreen?userid=eq.${userid}`);
 }
 
+joinCampaign(code) {
+  return axios.post(API_URL + "/rpc/joincampaign",
+  {
+    code: code, currentid: getUserIdFromToken(getJwtToken()) 
+  },
+    { headers: authHeader() });
+}
+
 getCampaignCharacters(id){
   return axios.get(API_URL + `/HomeScreen?campaignid=eq.${id}`)
 }

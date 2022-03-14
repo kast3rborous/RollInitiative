@@ -17,9 +17,10 @@
             />
           </div>
           <div class="form-group">
-            <label for="content">content</label>
+            <label for="username">joincode</label>
             <textarea
               v-model="content"
+              type="text"
               class="form-control"
               name="content"
               rows="20"
@@ -31,7 +32,7 @@
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              <span>Add Article</span>
+              <span>Join Campaign</span>
             </button>
           </div>
         </div>
@@ -48,23 +49,19 @@
 import Api from "../api";
 
 export default {
-  name: "AdminArticleAdd",
+  name: "JoinCampaign",
   data() {
     return {
-      title: "",
-      content: "",
-      loading: false,
-      message: "",
     };
   },
   methods: {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.addArticle({ title: this.title, content: this.content })
+      Api.joinCampaign({ content: this.content })
         .then(() => {
           this.loading = false;
-          this.$router.push("/admin/");
+          this.$router.push("/userinfo");
         })
         .catch((error) => {
           console.log(error);
