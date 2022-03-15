@@ -88,7 +88,7 @@ createMonster(ac, cr, initiativeBonus, monsterName, publicBool) {
 }
 
 getCampaigns(userid) {
-  return axios.get(API_URL + `/HomeScreen?userid=eq.${userid}`);
+  return axios.get(API_URL + `/campaignlist?userid=eq.${userid}`);
 }
 
 joinCampaign(code, currentid) {
