@@ -53,7 +53,7 @@ const router = new VueRouter({
     { path: "/createCharacter", component: createCharacter },
     { path: "/createMonster", component: createMonster },                //Added by TGG on 3/12
     { path: "/campaignDetails/:id", component: campaignDetails, 
-    children:[{path: "/encounter/:id", component: encounterDetails}]},
+    children:[{path: "/encounterDetails/:id", component: encounterDetails}]},
     { 
       path: "/userinfo",
             component: userInfo,
