@@ -40,7 +40,7 @@
         </b-tr>
       </b-thead>
       <b-tbody>
-        <b-tr v-for="encounter in encounterDetails" :key="encounter.encountername">
+        <b-tr v-for="encounter in encounterDetails" :key="encounter.encounterid">
           <b-td>{{ encounter.encountername }}</b-td>
         </b-tr>
       </b-tbody>
