@@ -52,8 +52,8 @@ const router = new VueRouter({
     { path: "/register", component: Register },
     { path: "/createCharacter", component: createCharacter },
     { path: "/createMonster", component: createMonster },                //Added by TGG on 3/12
-    { path: "/campaignDetails/:id", component: campaignDetails},
-    {path: "/encounterDetails/:id", component: encounterDetails},
+    { path: "/campaignDetails/:id", component: campaignDetails, 
+    children:[{path: "/encounterDetails/:id", component: encounterDetails}]},
     { 
       path: "/userinfo",
             component: userInfo,
