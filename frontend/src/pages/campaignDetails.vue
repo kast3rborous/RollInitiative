@@ -19,6 +19,7 @@
     <br />
     <div v-if="loading">Loading page....</div>
     <div v-else>
+    <p>Characters</p>
 <b-table-simple hover small caption-top responsive>
       <b-thead>
         <b-tr>
@@ -26,6 +27,7 @@
           <b-th>Player</b-th>
         </b-tr>
       </b-thead>
+      <p>Encounters</p>
       <b-tbody>
         <b-tr v-for="character in campaignDetails" :key="character.characterid">
           <b-td>{{ character.charactername }}</b-td>
