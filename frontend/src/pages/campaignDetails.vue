@@ -46,6 +46,7 @@
       </b-tbody>
     </b-table-simple>
   </div>
+  </div>
 </template>
 
 <script>
