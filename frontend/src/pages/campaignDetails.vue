@@ -19,7 +19,7 @@
     <br />
     <div v-if="loading">Loading page....</div>
     <div v-else>
-    <p>Characters</p>
+    <strong>Characters</strong>
 <b-table-simple hover small caption-top responsive>
       <b-thead>
         <b-tr>
@@ -27,7 +27,6 @@
           <b-th>Player</b-th>
         </b-tr>
       </b-thead>
-      <p>Encounters</p>
       <b-tbody>
         <b-tr v-for="character in campaignDetails" :key="character.characterid">
           <b-td>{{ character.charactername }}</b-td>
@@ -36,6 +35,7 @@
       </b-tbody>
     </b-table-simple>
     <br/>
+    <strong>Encounters</strong>
     <b-table-simple hover small caption-top responsive>
       <b-thead>
         <b-tr>
@@ -44,7 +44,7 @@
       </b-thead>
       <b-tbody>
         <b-tr v-for="encounter in encounterDetails" :key="encounter.encounterid">
-          <b-td>{{ encounter.encountername }}</b-td>
+          <router-link :to="`encounter/${encounter.encounterid}`"><b-td>{{ encounter.encountername }}</b-td></router-link>
         </b-tr>
       </b-tbody>
     </b-table-simple>
