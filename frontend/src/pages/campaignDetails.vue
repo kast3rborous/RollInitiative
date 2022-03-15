@@ -33,6 +33,7 @@
         </b-tr>
       </b-tbody>
     </b-table-simple>
+    <br/>
     <b-table-simple hover small caption-top responsive>
       <b-thead>
         <b-tr>
