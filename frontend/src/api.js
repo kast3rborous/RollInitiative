@@ -103,7 +103,7 @@ getCampaignCharacters(id){
   return axios.get(API_URL + `/HomeScreen?campaignid=eq.${id}`)
 }
 getCampaignEncounters(id){
-  return axios.get(API_URL + `/encounter?campaignid.eq.${id}`)
+  return axios.get(API_URL + `/encounter?campaignid=eq.${id}`)
 }
 }
 export default new Api();
