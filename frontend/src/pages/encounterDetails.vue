@@ -43,7 +43,7 @@
 import Api from "../api";
 
 export default {
-  name: "encounterDetail",
+  name: "encounterDetails",
   data: function () {
     return {
       loading: false,
