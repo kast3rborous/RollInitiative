@@ -14,7 +14,7 @@
       </b-collapse>
     </b-navbar>
     <b-jumbotron>
-      <p>{{campaignDetails[0].campaignname}}</p>
+      <h3>{{campaignDetails[0].campaignname}}</h3>
     </b-jumbotron>
     <br />
     <div v-if="loading">Loading page....</div>
@@ -68,7 +68,7 @@ export default {
       this.campaignDetails = res.data;
     });
     Api.getCampaignEncounters(this.$route.params.id).then((res) =>{
-      this.encounterdetails = res.data;
+      this.encounterDetails = res.data;
       this.loading = false
     });
   },
