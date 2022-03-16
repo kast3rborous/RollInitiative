@@ -91,7 +91,7 @@ export default {
 
    Api.createCharacter(this.ac, this.hp, this.initiativeBonus, this.name, this.level, this.$route.params.id)
     .then(()=>{
-      this.$router.push("/userinfo").catch((error) => {
+      this.$router.push("/userInfo").catch((error) => {
           console.log(error);
           if (error.response) {
             this.message = error.response.data.message;
