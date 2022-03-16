@@ -12,6 +12,7 @@
         <b-tr>
           <b-th>ID</b-th>
           <b-th>Name</b-th>
+          <b-th>Join Code</b-th>
           <b-th>Actions</b-th>
         </b-tr>
       </b-thead>
@@ -19,6 +20,7 @@
         <b-tr v-for="campaign in campaign" :key="campaign.campaignid">
           <b-td>{{ campaign.campaignid }}</b-td>
           <b-td>{{ campaign.campaignname }}</b-td>
+          <b-td>{{ campaign.joincode }}</b-td>
           <b-td>
             <b-button-group>
               <b-button
