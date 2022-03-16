@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-breadcrumb>
-      <b-breadcrumb-item to="/userinfo"> Admin </b-breadcrumb-item>
+      <b-breadcrumb-item to="/userinfo"> MyCampaigns </b-breadcrumb-item>
       <b-breadcrumb-item active>Join Campaign</b-breadcrumb-item>
     </b-breadcrumb>
     <div class="card card-container p-4">

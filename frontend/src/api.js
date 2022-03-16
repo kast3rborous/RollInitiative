@@ -91,7 +91,7 @@ getCampaigns(userid) {
   return axios.get(API_URL + `/campaignlist?userid=eq.${userid}`);
 }
 
-deleteArticle(campaignid) {
+deleteCampaign(campaignid) {
   return axios.delete(API_URL + `/campaign?campaignid=eq.${campaignid}`, {
     headers: authHeader(),
   });

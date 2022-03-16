@@ -53,6 +53,7 @@ export default {
   },
   created: function () {
     this.getCampaigns(userid);
+    this.deleteCampign(campaignid);
   },
 
   methods: {
@@ -64,6 +65,7 @@ export default {
         this.loading = false;
       });
     },
+
     deleteCampaign(campaignid) {
       Api.deleteCampaign(campaignid)
         .then(() => {
