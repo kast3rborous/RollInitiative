@@ -28,7 +28,7 @@
         </b-tr>
       </b-thead>
       <b-tbody>
-        <b-tr v-for="character in campaignDetails" :key="character.characterid">
+        <b-tr v-for="character in campaignCharacters" :key="character.characterid">
           <b-td>{{ character.charactername }}</b-td>
           <b-td>{{ character.username }}</b-td>
         </b-tr>
