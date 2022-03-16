@@ -80,7 +80,6 @@ export default {
       hp: 0,
       level: 0,
       initiativeBonus: 0,
-      campaignCode: 0,
       loading: false,
       message: "",
     };

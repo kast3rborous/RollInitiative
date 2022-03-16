@@ -61,18 +61,22 @@ export default {
     return {
       loading: false,
       campaignDetails: [],
-      encounterDetails: []
+      encounterDetails: [],
+      campaingCharacters: []
     };
   },
   created: function () {
     this.loading = true;
     Api.getCampaignCharacters(this.$route.params.id).then((res) => {
-      this.campaignDetails = res.data;
+      this.getCampaignCharacters = res.data;
     });
     Api.getCampaignEncounters(this.$route.params.id).then((res) =>{
       this.encounterDetails = res.data;
       this.loading = false
     });
+    Api.getCampaignbyid(this.$route.params.id).then((res)=>{
+      this.campaignDetails = res.data
+    })
   },
 };
 </script>
