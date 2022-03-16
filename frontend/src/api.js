@@ -61,10 +61,10 @@ class Api {
     return axios.post(API_URL + "/rpc/signup", { email, password, name });
   }
   // Justin Complete - 30/10/22
-  createCharacter(ac, hp, initiativeBonus, characterName, level){
+  createCharacter(ac, hp, initiativeBonus, characterName, level, campaignid){
     return axios.post(API_URL + "/character", 
     {ac: ac, hp: hp, initiativebonus: initiativeBonus, charactername: characterName, level: level, 
-      userid:getUserIdFromToken(getJwtToken()), campaignid: this.$route.query.campaignid}, {headers: authHeader()});
+      userid:getUserIdFromToken(getJwtToken()), campaignid: campaignid}, {headers: authHeader()});
   }
   checkpasswordstrength(password) {
     return axios.post(API_URL + "/rpc/checkpasswordstrength", { password });

@@ -50,7 +50,7 @@ const router = new VueRouter({
     { path: "/login", component: Login },
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
-    { path: "/createCharacter", component: createCharacter },
+    { path: "/createCharacter/:id", component: createCharacter },
     { path: "/createMonster", component: createMonster },                //Added by TGG on 3/12
     { path: "/campaignDetails/:id", component: campaignDetails},
     {path: "/encounterDetails/:id", component: encounterDetails},
