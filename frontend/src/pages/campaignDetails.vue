@@ -44,7 +44,7 @@
       </b-thead>
       <b-tbody>
         <b-tr v-for="encounter in encounterDetails" :key="encounter.encounterid">
-          <router-link :to="`encounterDetails/${encounter.encounterid}`"><b-td>{{ encounter.encountername }}</b-td></router-link>
+          <router-link :to="`/encounterDetails/${encounter.encounterid}`"><b-td>{{ encounter.encountername }}</b-td></router-link>
         </b-tr>
       </b-tbody>
     </b-table-simple>
