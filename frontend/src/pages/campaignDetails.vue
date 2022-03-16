@@ -62,7 +62,7 @@ export default {
       loading: false,
       campaignDetails: [],
       encounterDetails: [],
-      campaingCharacters: []
+      campaignCharacters: []
     };
   },
   created: function () {
