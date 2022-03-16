@@ -91,6 +91,12 @@ getCampaigns(userid) {
   return axios.get(API_URL + `/campaignlist?userid=eq.${userid}`);
 }
 
+deleteArticle(campaignid) {
+  return axios.delete(API_URL + `/campaign?campaignid=eq.${campaignid}`, {
+    headers: authHeader(),
+  });
+}
+
 joinCampaign(code, currentid) {
   return axios.post(API_URL + "/rpc/joincampaign",
   {

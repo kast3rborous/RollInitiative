@@ -26,6 +26,11 @@
                 :to="`/campaignDetails/${campaign.campaignid}`"
                 >Details</b-button
               >
+              <b-button
+                variant="outline-danger"
+                @click="() => deleteCampaign(campaign.campaignid)"
+                >Delete</b-button
+              >
             </b-button-group>
           </b-td>
         </b-tr>
@@ -58,6 +63,15 @@ export default {
         this.campaign = res.data;
         this.loading = false;
       });
+    },
+    deleteCampaign(campaignid) {
+      Api.deleteCampaign(campaignid)
+        .then(() => {
+          this.getCampaigns(userid);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
