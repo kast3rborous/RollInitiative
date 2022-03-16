@@ -68,7 +68,7 @@ export default {
   created: function () {
     this.loading = true;
     Api.getCampaignCharacters(this.$route.params.id).then((res) => {
-      this.getCampaignCharacters = res.data;
+      this.campaignCharacters = res.data;
     });
     Api.getCampaignEncounters(this.$route.params.id).then((res) =>{
       this.encounterDetails = res.data;
