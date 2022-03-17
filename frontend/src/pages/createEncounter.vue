@@ -15,7 +15,7 @@
           <div>
            <select class="form-control" @change="changeMonsterName($event)">
             <option value="" selected disabled>Choose</option>
-            <option v-for="monster in monsters" :value="monster.monstername" :key="monster.id">{{ monster.monstername }}</option>
+            <option v-for="monster in monsters" :value="monster.monsterid" :key="monster.id">{{ monster.monstername }}</option>
           </select>
           </div>
           <br>
