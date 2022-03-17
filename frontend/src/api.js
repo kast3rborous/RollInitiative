@@ -67,7 +67,10 @@ class Api {
       userid:getUserIdFromToken(getJwtToken()), campaignid: campaignid}, {headers: authHeader()});
   }
   returnCharacter(characterid) {
-    return axios.post(API_URL + `/character?characterid=eq.${characterid}`)
+    return axios.post(API_URL + `/character?characterid=eq.${characterid}`,
+    {
+      headers: authHeader()
+    });
   }
   updateCharacter(character) {
     return axios.patch(
@@ -126,9 +129,10 @@ getCampaignCharacters(id){
 
 deleteCharacter(characterid) {
   return axios.delete(API_URL + `/character?characterid=eq.${characterid}`, {
-    headers: authHeader(),
+    headers: authHeader()
   });
 }
+
 
 getCampaignEncounters(id){
   return axios.get(API_URL + `/encounter?campaignid=eq.${id}`)
