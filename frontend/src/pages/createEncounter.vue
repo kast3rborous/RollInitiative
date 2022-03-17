@@ -70,8 +70,14 @@ export default {
     createEncounter() {
      Api.createEncounter(this.encountermonstersid, this.name, this.$route.params.id)
      .then(()=>{
-       this.$router.push(`campaignDetails/${this.$route.params.id}`)
-       })
+      this.$router.push("/userInfo").catch((error) => {
+          console.log(error);
+          if (error.response) {
+            this.message = error.response.data.message;
+          }
+          this.loading = false;
+        });
+    })``
     },
     addMonsterName (event) {
       if (event.target.options[event.target.options.selectedIndex].text != "Choose"){
