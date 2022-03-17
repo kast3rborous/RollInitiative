@@ -13,7 +13,7 @@
             />
           </div>
           <div>
-           <select class="form-control" @select="addMonsterName($event)">
+           <select class="form-control" @click="addMonsterName($event)">
             <option value="" selected disabled>Choose</option>
             <option v-for="monster in monsters" :value="monster.monsterid" :key="monster.id">{{ monster.monstername }}</option>
           </select>
@@ -73,8 +73,10 @@ export default {
 
     },
     addMonsterName (event) {
+      if (event.target.options[event.target.options.selectedIndex].text != "Choose"){
       this.encountermonstersname.push(event.target.options[event.target.options.selectedIndex].text);
       this.encountermonstersid.push(event.target.options[event.target.options.selectedIndex].value);
+      }
     }
   },
 };
