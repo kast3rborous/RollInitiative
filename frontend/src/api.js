@@ -119,5 +119,8 @@ getCampaignEncounterDetails(id){
 getCampaignbyid(id){
   return axios.get(API_URL + `/campaign?campaignid=eq.${id}`)
 }
+getMonsters(id){
+  return axios.get(API_URL +`/monster?or=(public.eq.True, userid.eq.${id})`)
+}
 }
 export default new Api();
