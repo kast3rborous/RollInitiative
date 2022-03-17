@@ -68,8 +68,10 @@ export default {
       },
   methods: {
     createEncounter() {
-     Api.createEncounter(this.encountermonstersid, this.name, this.$route.params.id).push(`campaignDetails/${this.$route.params.id}`)
-
+     Api.createEncounter(this.encountermonstersid, this.name, this.$route.params.id)
+     .then(()=>{
+       this.$router.push(`campaignDetails/${this.$route.params.id}`)
+       })
     },
     addMonsterName (event) {
       if (event.target.options[event.target.options.selectedIndex].text != "Choose"){
