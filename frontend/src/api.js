@@ -122,5 +122,13 @@ getCampaignbyid(id){
 getMonsters(id){
   return axios.get(API_URL +`/monster?or=(public.eq.True, userid.eq.${id})`)
 }
+createEncounter(monsters, name, campaignid){
+  return axios.post(API_URL +`/rpc/createencounter`,
+  {
+    _monsterids: monsters,
+    _campaignid: campaignid,
+    _encountername: name
+  }, {headers: authHeader()})
+}
 }
 export default new Api();
