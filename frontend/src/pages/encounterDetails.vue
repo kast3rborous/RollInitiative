@@ -53,7 +53,7 @@ export default {
   created: function () {
     this.loading = true;
     Api.getCampaignEncounterDetails(this.$route.params.id).then((res) => {
-      this.encounter = res.data[0];
+      this.encounter = res.data;
       this.loading = false;
       console.log(this.encounter)
     });
