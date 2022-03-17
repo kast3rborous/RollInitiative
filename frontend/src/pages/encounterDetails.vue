@@ -24,7 +24,8 @@
       <b-thead>
         <b-tr>
           <b-th>Name</b-th>
-          <b-th>Player</b-th>
+          <b-th>AC</b-th>
+          <b-th>Initiative Bonus</b-th>
         </b-tr>
       </b-thead>
       <b-tbody>
