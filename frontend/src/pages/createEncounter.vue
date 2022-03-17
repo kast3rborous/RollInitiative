@@ -65,7 +65,8 @@ export default {
 
     },
     changeMonsterName (event) {
-      this.selectedJobTitle = event.target.options[event.target.options.selectedIndex].text
+      console.log(event.target.options[event.target.options.selectedIndex].key)
+      this.monsters.push(event.target.options[event.target.options.selectedIndex].text)
     }
   },
 };
