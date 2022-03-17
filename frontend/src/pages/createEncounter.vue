@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-12">
     <div class="card card-container">
-      <form name="form" @submit.prevent="createCharacter">
+      <form name="form" @submit.prevent="createEncounter">
         <div>
           <div class="form-group">
             <label for="monstername">Name</label>
@@ -31,7 +31,13 @@
         </div>
 
       </form>
+    <div>
+      <p>Monsters:</p>
+      <ul>
+        <li v-for="monster in encountermonstersname" :key="monster">{{monster}}</li>
+      </ul>
 
+    </div>
       <div v-if="message" class="alert alert-danger">
         {{ message }}
       </div>
@@ -48,7 +54,8 @@ export default {
     return {
       name: "",
       monsters:[],
-      encountermonsters:[],
+      encountermonstersid:[],
+      encountermonstersname: [],
       loading: false,
       message: "",
     };
@@ -65,8 +72,8 @@ export default {
 
     },
     changeMonsterName (event) {
-      console.log(event.target.options[event.target.options.selectedIndex].value)
-      this.monsters.push(event.target.options[event.target.options.selectedIndex].value)
+      this.encountermonstersname.push(event.target.options[event.target.options.selectedIndex].text);
+      this.encountermonstersid.push(event.target.options[event.target.options.selectedIndex].value);
     }
   },
 };
