@@ -14,7 +14,7 @@
       </b-collapse>
     </b-navbar>
     <b-jumbotron>
-      <h3>{{encounter[0].encountername}}</h3>
+      <h3>{{ encounter[0].encountername }}</h3>
     </b-jumbotron>
     <br />
     <div v-if="loading">Loading page....</div>
@@ -31,7 +31,7 @@
         <b-tr v-for="character in encounter" :key="character.ac">
           <b-td>{{ character.name }}</b-td>
           <b-td>{{ character.ac }}</b-td>
-          <b-td>{{character.initiativebonus}}</b-td>
+          <b-td>{{ character.initiativebonus }}</b-td>
         </b-tr>
       </b-tbody>
     </b-table-simple>
@@ -55,6 +55,7 @@ export default {
     Api.getCampaignEncounterDetails(this.$route.params.id).then((res) => {
       this.encounter = res.data[0];
       this.loading = false;
+      console.log(this.encounter)
     });
   },
 };
