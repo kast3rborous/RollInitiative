@@ -47,7 +47,7 @@ export default {
   data: function () {
     return {
       loading: false,
-      encounter: null,
+      encounter: [],
     };
   },
   created: function () {
