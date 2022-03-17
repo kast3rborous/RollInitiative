@@ -13,7 +13,7 @@
             />
           </div>
           <div>
-           <select class="form-control" @click="addMonsterName($event)">
+           <select class="form-control" @input="addMonsterName($event)">
             <option value="" selected disabled>Choose</option>
             <option v-for="monster in monsters" :value="monster.monsterid" :key="monster.id">{{ monster.monstername }}</option>
           </select>
