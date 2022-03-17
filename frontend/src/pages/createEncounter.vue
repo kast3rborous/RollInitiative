@@ -53,16 +53,16 @@ export default {
       message: "",
     };
   },
+      created: function(){
+      Api.getMonsters(getJwtToken(getUserIdFromToken())).then((res)=>{
+          this.monsters=res.data
+   })
+      },
   methods: {
     createEncounter() {
       this.message = "";
       this.loading = true;
 
-    },
-    created: function(){
-      Api.getMonsters(getJwtToken(getUserIdFromToken())).then((res)=>{
-          this.monsters=res.data
-   })
     },
     changeMonsterName (event) {
       this.selectedJobTitle = event.target.options[event.target.options.selectedIndex].text
