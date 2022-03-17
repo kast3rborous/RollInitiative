@@ -68,8 +68,7 @@ export default {
       },
   methods: {
     createEncounter() {
-      this.message = "";
-      this.loading = true;
+     Api.createEncounter(this.encountermonstersid, this.name, this.$route.params.id)
 
     },
     addMonsterName (event) {
