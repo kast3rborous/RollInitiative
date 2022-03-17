@@ -65,8 +65,8 @@ export default {
 
     },
     changeMonsterName (event) {
-      console.log(event.target.options)
-      this.monsters.push(event.target.options[event.target.options.selectedIndex].text)
+      console.log(event.target.options[event.target.options.selectedIndex].value)
+      this.monsters.push(event.target.options[event.target.options.selectedIndex].value)
     }
   },
 };
