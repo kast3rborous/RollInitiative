@@ -66,6 +66,19 @@ class Api {
     {ac: ac, hp: hp, initiativebonus: initiativeBonus, charactername: characterName, level: level, 
       userid:getUserIdFromToken(getJwtToken()), campaignid: campaignid}, {headers: authHeader()});
   }
+  returnCharacter(characterid) {
+    return axios.post(API_URL + `/character?characterid=eq.${characterid}`)
+  }
+  updateCharacter(character) {
+    return axios.patch(
+      API_URL + `/character?characterid=eq.${character.characterid}`,
+      character,
+      {
+        headers: authHeader(),
+      }
+    );
+  }
+
   checkpasswordstrength(password) {
     return axios.post(API_URL + "/rpc/checkpasswordstrength", { password });
   }
@@ -110,6 +123,11 @@ joinCampaign(code, currentid) {
 getCampaignCharacters(id){
   return axios.get(API_URL + `/HomeScreen?campaignid=eq.${id}`)
 }
+
+deleteCharacter(characterid) {
+  return axios.delete(API_URL + `/character?characterid=eq.${characterid}`)
+}
+
 getCampaignEncounters(id){
   return axios.get(API_URL + `/encounter?campaignid=eq.${id}`)
 }

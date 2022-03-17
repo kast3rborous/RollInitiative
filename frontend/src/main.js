@@ -21,6 +21,7 @@ import AdminArticleEdit from "./components/AdminArticleEdit";
 import campaignDetails from "./pages/campaignDetails";
 import encounterDetails from "./pages/encounterDetails";
 import createEncounter from "./pages/createEncounter";
+import editCharacter from "./pages/editCharacter";
 Vue.config.productionTip = false;
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -52,6 +53,7 @@ const router = new VueRouter({
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
     { path: "/createCharacter/:id", component: createCharacter },
+    { path: "/editCharacter/:id", component: editCharacter },
     { path: "/createMonster", component: createMonster },                //Added by TGG on 3/12
     { path: "/campaignDetails/:id", component: campaignDetails},
     { path: "/encounterDetails/:id", component: encounterDetails},

@@ -58,7 +58,7 @@
 
                 Api.createCampaign(this.campaignId, this.joinCode, this.campaignName) //campaingId may be faulty, look in to it.
                     .then(() => {
-                        this.$router.push("/").catch((error) => {
+                        this.$router.push("/userinfo").catch((error) => {
                             console.log(error);
                             if (error.response) {
                                 this.message = error.response.data.message;

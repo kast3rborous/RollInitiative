@@ -20,17 +20,35 @@
     <div v-if="loading">Loading page....</div>
     <div v-else>
     <strong>Characters</strong>
+    <router-link :to="`/createCharacter/${this.$route.params.id}`" tag="b-button" class="float-right"
+      >Add Character</router-link
+    >
 <b-table-simple hover small caption-top responsive>
       <b-thead>
         <b-tr>
           <b-th>Name</b-th>
           <b-th>Player</b-th>
+          <b-th>Actions</b-th>
         </b-tr>
       </b-thead>
       <b-tbody>
         <b-tr v-for="character in campaignCharacters" :key="character.characterid">
           <b-td>{{ character.charactername }}</b-td>
           <b-td>{{ character.username }}</b-td>
+          <b-td>
+            <b-button-group>
+              <b-button
+                variant="outline-primary"
+                :to="`/editcharacter/${character.characterid}`"
+                >Edit</b-button
+              >
+              <b-button
+                variant="outline-danger"
+                @click="() => deleteCharacter(character.characterid)"
+                >Delete</b-button
+              >
+            </b-button-group>
+          </b-td>
         </b-tr>
       </b-tbody>
     </b-table-simple>
@@ -76,7 +94,18 @@ export default {
     });
     Api.getCampaignbyid(this.$route.params.id).then((res)=>{
       this.campaignDetails = res.data
-    })
+    });
+  },
+  methods: {
+    deleteCharacter(characterid) {
+      Api.deleteCharacter(characterid)
+        .then(() => {
+          this.$router.push(`campaignDetails/${this.$route.params.id}`);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
