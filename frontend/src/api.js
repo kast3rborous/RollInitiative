@@ -125,7 +125,9 @@ getCampaignCharacters(id){
 }
 
 deleteCharacter(characterid) {
-  return axios.delete(API_URL + `/character?characterid=eq.${characterid}`)
+  return axios.delete(API_URL + `/character?characterid=eq.${characterid}`, {
+    headers: authHeader(),
+  });
 }
 
 getCampaignEncounters(id){
