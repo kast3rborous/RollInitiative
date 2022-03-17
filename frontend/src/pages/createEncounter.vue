@@ -54,7 +54,7 @@ export default {
     };
   },
       created: function(){
-      Api.getMonsters(getJwtToken(getUserIdFromToken())).then((res)=>{
+      Api.getMonsters(getUserIdFromToken(getJwtToken())).then((res)=>{
           this.monsters=res.data
    })
       },
