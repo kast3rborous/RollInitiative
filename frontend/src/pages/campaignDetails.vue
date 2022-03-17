@@ -100,7 +100,9 @@ export default {
     deleteCharacter(characterid) {
       Api.deleteCharacter(characterid)
         .then(() => {
-          this.$router.push(`/campaignDetails/${this.$route.params.id}`);
+          Api.getCampaignCharacters(this.$route.params.id).then((res) => {
+            this.campaignCharacters = res.data;
+          });
         })
         .catch((err) => {
           console.log(err);
