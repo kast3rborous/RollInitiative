@@ -13,12 +13,19 @@
             />
           </div>
           <div>
-           <select class="form-control" @change="changeMonsterName($event)">
+           <select class="form-control" @input="addMonsterName($event)">
             <option value="" selected disabled>Choose</option>
             <option v-for="monster in monsters" :value="monster.monsterid" :key="monster.id">{{ monster.monstername }}</option>
           </select>
           </div>
           <br>
+              <div>
+      <p>Monsters:</p>
+      <ul>
+        <li v-for="monster in encountermonstersname" :key="monster">{{monster}}</li>
+      </ul>
+
+    </div>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span
@@ -31,13 +38,7 @@
         </div>
 
       </form>
-    <div>
-      <p>Monsters:</p>
-      <ul>
-        <li v-for="monster in encountermonstersname" :key="monster">{{monster}}</li>
-      </ul>
 
-    </div>
       <div v-if="message" class="alert alert-danger">
         {{ message }}
       </div>
@@ -71,7 +72,7 @@ export default {
       this.loading = true;
 
     },
-    changeMonsterName (event) {
+    addMonsterName (event) {
       this.encountermonstersname.push(event.target.options[event.target.options.selectedIndex].text);
       this.encountermonstersid.push(event.target.options[event.target.options.selectedIndex].value);
     }
