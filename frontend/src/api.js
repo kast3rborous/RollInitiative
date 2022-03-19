@@ -122,6 +122,13 @@ returnMonster(monsterid) {
     );
 }
 
+//Added by The Greate Gonzales on 3/19/2022
+deleteMonster(monsterid) {
+  return axios.delete(API_URL + `/monster?monsterid=eq.${monsterid}`, {
+    headers: authHeader()
+  });
+}
+
 
 getCampaigns(userid) {
   return axios.get(API_URL + `/campaignlist?userid=eq.${userid}`);
