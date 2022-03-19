@@ -66,6 +66,7 @@
         </b-tr>
       </b-tbody>
     </b-table-simple>
+    <strong>Monsters</strong>
     <b-table-simple hover small caption-top responsive>
       <b-thead>
         <b-tr>
