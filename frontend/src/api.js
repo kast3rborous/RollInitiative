@@ -66,9 +66,8 @@ class Api {
     {ac: ac, hp: hp, initiativebonus: initiativeBonus, charactername: characterName, level: level, 
       userid:getUserIdFromToken(getJwtToken()), campaignid: campaignid}, {headers: authHeader()});
   }
-  returnCharacter(characterid, ac, hp, initiativeBonus, characterName, level) {
-    return axios.post(API_URL + `/character?characterid=eq.${characterid}`,
-    {ac: ac, hp: hp, initiativebonus: initiativeBonus, charactername: characterName, level: level,},
+  returnCharacter(characterid) {
+    return axios.get(API_URL + `/character?characterid=eq.${characterid}`,
     {
       headers: authHeader()
     });
