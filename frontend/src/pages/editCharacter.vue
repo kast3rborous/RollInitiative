@@ -11,7 +11,6 @@
               type="text"
               class="form-control"
               name="id"
-              readonly
             />
           </div>
           <div class="form-group">
@@ -29,7 +28,6 @@
               v-model="character.hp"
               class="form-control"
               name="content"
-              rows="20"
             />
           </div>
           <div class="form-group">
@@ -38,7 +36,6 @@
               v-model="character.level"
               class="form-control"
               name="content"
-              rows="20"
             />
           </div>
           <div class="form-group">
@@ -47,7 +44,6 @@
               v-model="character.initiativebonus"
               class="form-control"
               name="content"
-              rows="20"
             />
           </div>
           
