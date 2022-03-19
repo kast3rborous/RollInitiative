@@ -20,7 +20,7 @@
     <div v-if="loading">Loading page....</div>
     <div v-else>
     <strong>Characters</strong>
-    <router-link :to="`/createCharacter/${this.$route.params.id}`" tag="b-button" class="float-right"
+    <router-link :to="`/createCharacter/${this.$route.params.id}`" tag="b-button" class="float-right" 
       >Add Character</router-link
     >
 <b-table-simple hover small caption-top responsive>
@@ -67,6 +67,9 @@
       </b-tbody>
     </b-table-simple>
   </div>
+      <!--Added by TGG-->
+      <router-link :to="`/createMonster`" tag="b-button" class="float-right"
+      >Add Monster</router-link>
   </div>
 </template>
 
