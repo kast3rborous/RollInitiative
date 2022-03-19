@@ -79,11 +79,8 @@
           <b-td>{{ monster.monstername }}</b-td>
           <b-td>
             <b-button-group>
-              <b-button
-                variant="outline-primary"
-                :to="`/editMonster/${monster.monsterid}`"
-                >Edit</b-button
-              >
+                <b-button variant="outline-primary"
+                          :to="`/editmonster/${monster.monsterid}`">Edit</b-button>
               <b-button
                 variant="outline-danger"
                 @click="() => deleteMonster(monster.monsterid)"
