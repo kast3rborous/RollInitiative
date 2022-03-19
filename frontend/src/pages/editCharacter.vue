@@ -42,15 +42,6 @@
             />
           </div>
           <div class="form-group">
-            <label for="content">Initiative</label>
-            <textarea
-              v-model="character.initiative"
-              class="form-control"
-              name="content"
-              rows="20"
-            />
-          </div>
-          <div class="form-group">
             <label for="content">initiativeBonus</label>
             <textarea
               v-model="character.initiativebonus"
