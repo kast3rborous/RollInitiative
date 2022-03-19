@@ -80,7 +80,7 @@ class Api {
         headers: authHeader(),
       }
     );
-  }
+    }
 
   checkpasswordstrength(password) {
     return axios.post(API_URL + "/rpc/checkpasswordstrength", { password });
@@ -102,6 +102,26 @@ createMonster(ac, cr, initiativeBonus, monsterName, publicBool) {
             userid: getUserIdFromToken(getJwtToken()),
         }, { headers: authHeader() });
 }
+
+//Added by The Greate Gonzales on 3/19/2022
+updateMonster(monster) {
+    return axios.patch(
+        API_URL + `/monster?monsterid=eq.${monster.monsterid}`,monster,
+        {
+            headers: authHeader(),
+        }
+    );
+}
+
+//Added by The Greate Gonzales on 3/19/2022
+returnMonster(monsterid) {
+    return axios.get(API_URL + `/monster?monsterid=eq.${monsterid}`,
+        {
+            headers: authHeader()
+        }
+    );
+}
+
 
 getCampaigns(userid) {
   return axios.get(API_URL + `/campaignlist?userid=eq.${userid}`);

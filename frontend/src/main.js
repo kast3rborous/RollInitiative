@@ -22,6 +22,7 @@ import campaignDetails from "./pages/campaignDetails";
 import encounterDetails from "./pages/encounterDetails";
 import createEncounter from "./pages/createEncounter";
 import editCharacter from "./pages/editCharacter";
+import editMonster from "./pages/editMonster";      //Added by TGG on 3/19
 Vue.config.productionTip = false;
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -54,6 +55,7 @@ const router = new VueRouter({
     { path: "/register", component: Register },
     { path: "/createCharacter/:id", component: createCharacter },
     { path: "/editCharacter/:id", component: editCharacter },
+    { path: "/editMonster/:id", component: editMonster },                //Added by TGG on 3/19
     { path: "/createMonster", component: createMonster },                //Added by TGG on 3/12
     { path: "/campaignDetails/:id", component: campaignDetails},
     { path: "/encounterDetails/:id", component: encounterDetails},
