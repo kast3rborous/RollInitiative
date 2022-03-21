@@ -32,7 +32,7 @@
                                   name="content" />
                     </div>
                     <div class="form-group">
-                        <label for="content">Private</label>
+                        <label for="content">Public</label>
                         <textarea v-model="monster.public"
                                   type="checkbox"
                                   class="form-control"
