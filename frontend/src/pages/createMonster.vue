@@ -33,7 +33,7 @@
                                name="initiativeBonus" />
                     </div>
                     <div>
-                        <label for="public">Private</label>
+                        <label for="public">Public</label>
                         <input v-model="publicBool"
                                type="checkbox"
                                class="form-control"
