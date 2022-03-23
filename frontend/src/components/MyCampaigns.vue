@@ -43,7 +43,7 @@
 
 <script>
 import Api from "../api";
-import { getUserIdFromToken, getJwtToken } from '../auth';
+//import { getUserIdFromToken, getJwtToken } from '../auth';
 let userid = getUserIdFromToken(getJwtToken());
 export default {
   name: "CampaignList",
